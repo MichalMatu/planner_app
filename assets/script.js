@@ -9,7 +9,7 @@ var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 // initialize the page
 for (var i = 0; i < hours.length; i++) {
     var hour = hours[i];
-// append the html to the page
+// add the time blocks to the page
     container.append(`
     <div id="hour-${hour}" class="row time-block">
     <div class="col-md-1 hour">${hour}AM</div>
@@ -44,13 +44,10 @@ for (var i = 0; i < hours.length; i++) {
     text = localStorage.getItem(`hour-${hour}`);
     $(`#hour-${hour}`).find('.description').val(text);
     
-
-
-// change form am to pm if time is greater than 12
-    if (hour > 12) {
-        $(`#hour-${hour}`).find('.hour').text(`${hour - 12}PM`);
+// change from am to pm if time is greater than 12
+    if (hour > 12) {    
+        $(`#hour-${hour}`).find('.hour').text(hour - 12 + 'PM');
     }
-
 }
 
 
